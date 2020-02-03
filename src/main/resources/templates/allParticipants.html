@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns=http://www.w3.org/1999/xhtml
+xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Email</th>
+            <th>Date de naissance</th>
+            <th>Organisation</th>
+            <th>Observations</th>
+            <th>Evenement</th>
+        </tr>
+        <tr th:each="p : ${allParticipants}">
+            <td th:text="${p.nom}"></td>
+            <td th:text="${p.prenom}"></td>
+            <td th:text="${p.email}"></td>
+            <td th:text="${p.datenaiss}"></td>
+            <td th:text="${p.organisation}"></td>
+            <td th:text="${p.observations}"></td>
+            <td th:text="${p.event}"></td>
+        </tr>
+    </table>
+</body>
+</html>

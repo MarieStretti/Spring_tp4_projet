@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns=http://www.w3.org/1999/xhtml
+xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Intitule</th>
+            <th>Theme</th>
+            <th>Date de début</th>
+            <th>Durée</th>
+            <th>Nombre de participants maximum</th>
+            <th>Description</th>
+            <th>Organisateur</th>
+            <th>Type de l'événement</th>
+        </tr>
+        <tr th:each="e : ${allEvents}">
+            <td th:text="${e.intitule}"></td>
+            <td th:text="${e.theme}"></td>
+            <td th:text="${e.datedebut}"></td>
+            <td th:text="${e.duree}"></td>
+            <td th:text="${e.nbpartmax}"></td>
+            <td th:text="${e.description}"></td>
+            <td th:text="${e.organisateur}"></td>
+            <td th:text="${e.typeevent}"></td>
+        </tr>
+    </table>
+</body>
+</html>
