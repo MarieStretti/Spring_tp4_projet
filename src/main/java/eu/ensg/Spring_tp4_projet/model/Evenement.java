@@ -27,10 +27,10 @@ public class Evenement {
     @Column(name="theme", nullable=false)
     private String theme;
     
-    @Column(name="date_debut", nullable=false)
+    @Column(name="date_debut")
     private LocalDate datedebut;
     
-    @Column(name="duree", nullable=false)
+    @Column(name="duree")
     private LocalDate duree;
     
     @Column(name="nb_part_max")

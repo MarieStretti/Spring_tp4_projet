@@ -6,8 +6,6 @@
 package eu.ensg.Spring_tp4_projet.model;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 import javax.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 

@@ -7,7 +7,6 @@ package eu.ensg.Spring_tp4_projet.controller;
 
 import eu.ensg.Spring_tp4_projet.model.Evenement;
 import eu.ensg.Spring_tp4_projet.model.EvenementRepository;
-import eu.ensg.Spring_tp4_projet.model.Participant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

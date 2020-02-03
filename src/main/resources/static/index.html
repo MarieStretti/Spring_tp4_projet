@@ -12,5 +12,16 @@ and open the template in the editor.
     </head>
     <body>
         <div>TODO write content</div>
+        <form action="/add" th:action="@{/add}" th:object="${FormulaireParticipantController}" method="post">
+        <div class="form-group">
+            <label for="nom">Nom</label>
+            <input type="text" th:field="*{nom}" class="form-control" id="name" placeholder="nom"/>
+        </div>
+        <div class="form-group">
+            <label for="prenom">Prenom</label>
+            <input type="text" th:field="*{prenom}" class="form-control" id="prenom" placeholder="prenom"/>
+        </div>
+        <button style="margin-top:10px" class="btn btn-default" type="submit">Ajouter</button>
+        </form>
     </body>
 </html>
