@@ -1,10 +1,6 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
+<html xmlns=http://www.w3.org/1999/xhtml
+xmlns:th="http://www.thymeleaf.org">
     <head>
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
@@ -13,11 +9,7 @@ and open the template in the editor.
     <body>
         <div>TODO write content</div>
 
-        <form action="#" th:action="@{/index}" th:object="${index}" method="post">
-            <p>Id: <input type="text" th:field="*{nom}" /></p>
-            <p>Message: <input type="text" th:field="*{prenom}" /></p>
-            <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
-        </form>
+        <a href="/participant/all">Participants List</a>
 
     </body>
 </html>

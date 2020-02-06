@@ -4,8 +4,10 @@ xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Getting Started: Serving Web Content</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>
 </head>
 <body>
+    <a href="addParticipant">Add Person</a>
     <table id="participantsTable">
         <tr>
             <th>Nom</th>
@@ -27,28 +29,4 @@ xmlns:th="http://www.thymeleaf.org">
         </tr>
     </table>
 </body>
-<style>
-    #participantsTable {
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-    }
-  
-    #participantsTable td, #participantsTable th {
-        border: 1px solid #ddd;
-        padding: 8px;
-    }
-    
-    #participantsTable tr:nth-child(even){background-color: #f2f2f2;}
-    
-    #participantsTable tr:hover {background-color: #ddd;}
-    
-    #participantsTable th {
-        padding-top: 12px;
-        padding-bottom: 12px;
-        text-align: left;
-        background-color: rgb(50, 89, 161);
-        color: white;
-    }
-</style>
 </html>
