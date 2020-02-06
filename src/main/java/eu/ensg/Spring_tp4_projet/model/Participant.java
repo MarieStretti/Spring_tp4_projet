@@ -7,6 +7,7 @@ package eu.ensg.Spring_tp4_projet.model;
 
 import java.time.LocalDate;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
@@ -20,13 +21,16 @@ public class Participant {
     @Column(name="num_pers")
     private int numpers;
     
+    @NotNull
     @Column(name="nom", nullable=false)
     private String nom;
     
+    @NotNull
     @Column(name="prenom", nullable=false)
     private String prenom;
     
-    @Column(name="email")
+    @NotNull
+    @Column(name="email", nullable=false)
     private String email;
     
     @Column(name="date_naiss")
@@ -38,8 +42,8 @@ public class Participant {
     @Column(name="observations")
     private String observations;
     
-    @Column(name="event")
-    private String event;
+    @ManyToOne
+    public Evenement event;
     
     public Participant(){
         
@@ -108,15 +112,8 @@ public class Participant {
         this.observations = observations;
     }
     
-    public String getEvent() {
-        return event;
-    }
-
-    public void setEvent(String event) {
-        this.event = event;
-    }
-    
     public String toString(){
         return this.nom +" "+ this.prenom;
     }
+    
 }

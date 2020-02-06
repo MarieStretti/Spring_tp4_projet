@@ -7,7 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -44,6 +44,9 @@ public class Evenement {
     
     @Column(name="type_event")
     private String typeevent;
+    
+    @OneToMany(mappedBy="event")
+    private List<Participant> participants = new ArrayList<>();
 
     
     public int getNumevent() {
@@ -125,9 +128,5 @@ public class Evenement {
     public void setParticipants(List<Participant> participants) {
         this.participants = participants;
     }
-    
-    
-    @ManyToMany
-    private List<Participant> participants = new ArrayList<>();
     
 }

@@ -4,10 +4,12 @@ xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Getting Started: Serving Web Content</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>
 </head>
 <body>
-    <table>
+    <table class="table">
         <tr>
+            <th>Inscription</th>
             <th>Intitule</th>
             <th>Theme</th>
             <th>Date de début</th>
@@ -18,6 +20,7 @@ xmlns:th="http://www.thymeleaf.org">
             <th>Type de l'événement</th>
         </tr>
         <tr th:each="e : ${allEvents}">
+            <td><a href="/participant/addParticipant" title="S'inscrire">S'inscrire</a></td>
             <td th:text="${e.intitule}"></td>
             <td th:text="${e.theme}"></td>
             <td th:text="${e.datedebut}"></td>

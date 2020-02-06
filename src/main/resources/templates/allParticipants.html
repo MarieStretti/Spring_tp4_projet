@@ -8,7 +8,7 @@ xmlns:th="http://www.thymeleaf.org">
 </head>
 <body>
     <a href="addParticipant">Add Person</a>
-    <table id="participantsTable">
+    <table class="table">
         <tr>
             <th>Nom</th>
             <th>Prenom</th>
@@ -16,7 +16,6 @@ xmlns:th="http://www.thymeleaf.org">
             <th>Date de naissance</th>
             <th>Organisation</th>
             <th>Observations</th>
-            <th>Evenement</th>
         </tr>
         <tr th:each="p : ${allParticipants}">
             <td th:text="${p.nom}"></td>
@@ -25,7 +24,6 @@ xmlns:th="http://www.thymeleaf.org">
             <td th:text="${p.datenaiss}"></td>
             <td th:text="${p.organisation}"></td>
             <td th:text="${p.observations}"></td>
-            <td th:text="${p.event}"></td>
         </tr>
     </table>
 </body>

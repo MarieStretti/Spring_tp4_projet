@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package eu.ensg.Spring_tp4_projet.controller;
 
 import eu.ensg.Spring_tp4_projet.model.Evenement;
@@ -41,7 +36,6 @@ public class EvenementController {
     @GetMapping(path = "/all")
     public String getAllEvents(Model model) {
         model.addAttribute("allEvents", eventRepository.findAll());
-        // This returns a JSON or XML with the users
         return "allEvents";
     }
 }

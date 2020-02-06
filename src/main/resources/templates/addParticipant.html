@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns=http://www.w3.org/1999/xhtml
-xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org">
     <head>
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
@@ -8,10 +8,23 @@ xmlns:th="http://www.thymeleaf.org">
     </head>
     <body>
         <h1>Adding a participant:</h1>
-                <form th:action="@{/participant/addParticipant}" th:object="${participantForm}" method="POST">
+        <form th:action="@{/participant/addParticipant}" th:object="${participantForm}" method="POST">
             <p>Nom: <input type="text" th:field="*{nom}" /></p>
+            <td th:if="${#fields.hasErrors('nom')}" th:errors="*{nom}">Nom Error</td>
             <p>Prenom: <input type="text" th:field="*{prenom}" /></p>
+            <td th:if="${#fields.hasErrors('prenom')}" th:errors="*{prenom}">Prenom Error</td>
+            <p>Email: <input type="email" th:field="*{email}" /></p>
+            <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</td>
             <p><input type="submit" value="Create" /> <input type="reset" value="Reset" /></p>
+
+            <select>
+                <option th:each="ev : ${evenements}"
+                        th:text="${ev.theme}"/>
+            </select>
         </form>
+
+        <div th:if="${errorMessage}" th:utext="${errorMessage}"
+             style="color:red;font-style:italic;">
+        </div>
     </body>
 </html>
