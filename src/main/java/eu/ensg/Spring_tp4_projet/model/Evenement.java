@@ -46,7 +46,7 @@ public class Evenement {
     private String typeevent;
     
     @OneToMany(mappedBy="event")
-    private List<Participant> participants = new ArrayList<>();
+    public List<Participant> participants = new ArrayList<>();
 
     
     public int getNumevent() {
@@ -127,6 +127,10 @@ public class Evenement {
 
     public void setParticipants(List<Participant> participants) {
         this.participants = participants;
+    }
+    
+    public void addParticipant(Participant participant) {
+    	this.participants.add(participant);
     }
     
 }

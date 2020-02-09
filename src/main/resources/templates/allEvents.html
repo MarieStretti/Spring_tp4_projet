@@ -20,7 +20,7 @@ xmlns:th="http://www.thymeleaf.org">
             <th>Type de l'événement</th>
         </tr>
         <tr th:each="e : ${allEvents}">
-            <td><a href="/participant/addParticipant" title="S'inscrire">S'inscrire</a></td>
+            <td><a th:href="@{/participant/addParticipant?id={id}(id=${e.numevent})}">S'inscrire</a></td>
             <td th:text="${e.intitule}"></td>
             <td th:text="${e.theme}"></td>
             <td th:text="${e.datedebut}"></td>

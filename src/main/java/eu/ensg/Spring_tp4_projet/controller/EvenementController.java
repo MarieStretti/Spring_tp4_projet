@@ -38,4 +38,5 @@ public class EvenementController {
         model.addAttribute("allEvents", eventRepository.findAll());
         return "allEvents";
     }
+
 }

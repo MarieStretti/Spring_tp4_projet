@@ -42,8 +42,11 @@ public class Participant {
     @Column(name="observations")
     private String observations;
     
+    @Column(name="evenement")
+    private String evenement;
+    
     @ManyToOne
-    public Evenement event;
+    private Evenement event;
     
     public Participant(){
         
@@ -110,6 +113,19 @@ public class Participant {
 
     public void setObservations(String observations) {
         this.observations = observations;
+    }
+    
+    public Evenement getEvenement() {
+    	return event;
+    }
+    
+    public void setIntitule(String intitule) {
+    	this.evenement = intitule;
+    }
+    
+    public void setEvenement(Evenement event) {
+        this.event = event;
+        this.evenement = event.getIntitule();
     }
     
     public String toString(){

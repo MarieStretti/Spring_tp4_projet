@@ -8,7 +8,7 @@
     </head>
     <body>
         <h1>Adding a participant:</h1>
-        <form th:action="@{/participant/addParticipant}" th:object="${participantForm}" method="POST">
+        <form th:action="@{/participant/addParticipant?id={id}(id=${eventId})}" th:object="${participantForm}" method="POST">
             <p>Nom: <input type="text" th:field="*{nom}" /></p>
             <td th:if="${#fields.hasErrors('nom')}" th:errors="*{nom}">Nom Error</td>
             <p>Prenom: <input type="text" th:field="*{prenom}" /></p>
@@ -16,11 +16,6 @@
             <p>Email: <input type="email" th:field="*{email}" /></p>
             <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</td>
             <p><input type="submit" value="Create" /> <input type="reset" value="Reset" /></p>
-
-            <select>
-                <option th:each="ev : ${evenements}"
-                        th:text="${ev.theme}"/>
-            </select>
         </form>
 
         <div th:if="${errorMessage}" th:utext="${errorMessage}"
