@@ -9,6 +9,7 @@ import java.util.Date;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table( name = "participant" )
@@ -34,6 +35,7 @@ public class Participant {
     private String email;
     
     @Column(name="date_naiss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date datenaiss;
     
     @Column(name="organisation")
