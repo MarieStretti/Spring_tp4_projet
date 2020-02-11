@@ -5,7 +5,7 @@
  */
 package eu.ensg.Spring_tp4_projet.model;
 
-import java.time.LocalDate;
+import java.util.Date;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import org.hibernate.annotations.GenericGenerator;
@@ -34,16 +34,13 @@ public class Participant {
     private String email;
     
     @Column(name="date_naiss")
-    private LocalDate datenaiss;
+    private Date datenaiss;
     
     @Column(name="organisation")
     private String organisation;
     
     @Column(name="observations")
     private String observations;
-    
-    @Column(name="evenement")
-    private String evenement;
     
     @ManyToOne
     private Evenement event;
@@ -52,7 +49,7 @@ public class Participant {
         
     }
 
-    public Participant(String nom, String prenom, String email, LocalDate date_naiss) {
+    public Participant(String nom, String prenom, String email, Date date_naiss) {
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;
@@ -91,11 +88,11 @@ public class Participant {
         this.email = email;
     }
 
-    public LocalDate getDatenaiss() {
+    public Date getDatenaiss() {
         return datenaiss;
     }
 
-    public void setDatenaiss(LocalDate datenaiss) {
+    public void setDatenaiss(Date datenaiss) {
         this.datenaiss = datenaiss;
     }
 
@@ -115,17 +112,12 @@ public class Participant {
         this.observations = observations;
     }
     
-    public Evenement getEvenement() {
+    public Evenement getEvent() {
     	return event;
     }
     
-    public void setIntitule(String intitule) {
-    	this.evenement = intitule;
-    }
-    
-    public void setEvenement(Evenement event) {
+    public void setEvent(Evenement event) {
         this.event = event;
-        this.evenement = event.getIntitule();
     }
     
     public String toString(){

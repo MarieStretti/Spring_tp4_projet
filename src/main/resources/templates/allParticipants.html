@@ -7,9 +7,10 @@ xmlns:th="http://www.thymeleaf.org">
     <link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>
 </head>
 <body>
-    <a href="addParticipant">Add Person</a>
+    <!--<a href="addParticipant">Add Person</a>-->
     <table class="table">
         <tr>
+            <th>Suppression</th>
             <th>Nom</th>
             <th>Prenom</th>
             <th>Email</th>
@@ -19,13 +20,14 @@ xmlns:th="http://www.thymeleaf.org">
             <th>Evénement</th>
         </tr>
         <tr th:each="p : ${allParticipants}">
+            <td><input type="checkbox" /></td>
             <td th:text="${p.nom}"></td>
             <td th:text="${p.prenom}"></td>
             <td th:text="${p.email}"></td>
             <td th:text="${p.datenaiss}"></td>
             <td th:text="${p.organisation}"></td>
             <td th:text="${p.observations}"></td>
-            <td th:text="${p.evenement}"></td>
+            <td th:if="${p.event}!=null" th:text="${p.event.intitule}"></td>
         </tr>
     </table>
 </body>

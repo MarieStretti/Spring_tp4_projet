@@ -44,22 +44,21 @@ public class ParticipantController {
     
     @RequestMapping(value = { "/addParticipant"}, method = RequestMethod.POST)
     public String saveParticipant(Model model, @ModelAttribute("participantForm")Participant p, @RequestParam("id") Optional<String> eventId) {
-        String nom = p.getNom();
-        String prenom = p.getPrenom();
-        String email = p.getEmail();
-        if (nom != null && nom.length() > 0 && prenom != null && prenom.length() > 0 && email != null && email.length() > 0 && eventId.isPresent()) {
-            Participant pa = new Participant();
-            pa.setNom(nom);
-            pa.setPrenom(prenom);
-            pa.setEmail(email);
+
+        if (p.getNom() != null
+                && p.getNom().length() > 0
+                && p.getPrenom() != null 
+                && p.getPrenom().length() > 0 
+                && p.getEmail() != null 
+                && p.getEmail().length() > 0 
+                && eventId.isPresent()) {
             String id = eventId.get();
             Optional<Evenement> event = eventRepository.findById(Integer.parseInt(id));
             if (event.isPresent()) {
-	            //pa.setEvenement(event.get());
-            	pa.setIntitule(event.get().getIntitule());
-	            participantRepository.save(pa);
-	            model.addAttribute("event", event.get().getIntitule());
-	            return "redirect:/participant/all";
+            	p.setEvent(event.get());
+                participantRepository.save(p);
+                model.addAttribute("event", event.get());
+                return "redirect:/participant/all";
             }
             model.addAttribute("errorMessage", "Les champs Nom, Prénom et Email sont requis");
             return "redirect:/addParticipant/";

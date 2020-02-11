@@ -9,12 +9,19 @@
     <body>
         <h1>Adding a participant:</h1>
         <form th:action="@{/participant/addParticipant?id={id}(id=${eventId})}" th:object="${participantForm}" method="POST">
-            <p>Nom: <input type="text" th:field="*{nom}" /></p>
+            <p>Nom : <input type="text" th:field="*{nom}" /></p>
             <td th:if="${#fields.hasErrors('nom')}" th:errors="*{nom}">Nom Error</td>
-            <p>Prenom: <input type="text" th:field="*{prenom}" /></p>
+            <p>Prenom : <input type="text" th:field="*{prenom}" /></p>
             <td th:if="${#fields.hasErrors('prenom')}" th:errors="*{prenom}">Prenom Error</td>
-            <p>Email: <input type="email" th:field="*{email}" /></p>
+            <p>Email : <input type="email" th:field="*{email}" /></p>
             <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</td>
+            <p>Date de naissance : <input type="date" th:field="*{datenaiss}" /></p>
+            <td th:if="${#fields.hasErrors('datenaiss')}" th:errors="*{datenaiss}">Date Error</td>
+            <p>Organisation : <input type="text" th:field="*{organisation}" /></p>
+            <td th:if="${#fields.hasErrors('organisation')}" th:errors="*{organisation}">Organisation Error</td>
+            <p>Observations : <input type="text" th:field="*{observations}" /></p>
+            <td th:if="${#fields.hasErrors('observations')}" th:errors="*{observations}">Observations Error</td>
+            
             <p><input type="submit" value="Create" /> <input type="reset" value="Reset" /></p>
         </form>
 
