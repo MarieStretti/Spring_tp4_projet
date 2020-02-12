@@ -72,4 +72,31 @@ public class ParticipantController {
         model.addAttribute("allParticipants", participantRepository.findAll());
         return "allParticipants";
     }
+    
+    @GetMapping(path="/removeParticipant")
+    public String removeParticipant(@RequestParam("id") Optional<String> participantId){
+        String id = participantId.get();
+        Optional<Participant> participant = participantRepository.findById(Integer.parseInt(id));
+         
+        if(participant.isPresent()) 
+        {
+            participantRepository.deleteById(Integer.parseInt(id));
+        } else {
+            return "Il n'y a pas de participant pour cet identifiant";
+        }
+        return "redirect:/";
+    }
+    
+    @RequestMapping(path = "modifyParticipant")
+    public String modifyParticipant(Model model, @RequestParam("id") Optional<String> participantId)
+    {
+        if (participantId.isPresent()) {
+            int id = Integer.parseInt(participantId.get());
+            Optional<Participant> participant = participantRepository.findById(id);
+            model.addAttribute("employee", participant);
+        } else {
+            return "Id not present";
+        }
+        return "modifyParticipant";
+    }
 }

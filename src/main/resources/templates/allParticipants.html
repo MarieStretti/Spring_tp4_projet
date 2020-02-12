@@ -10,7 +10,6 @@ xmlns:th="http://www.thymeleaf.org">
     <!--<a href="addParticipant">Add Person</a>-->
     <table class="table">
         <tr>
-            <th>Suppression</th>
             <th>Nom</th>
             <th>Prenom</th>
             <th>Email</th>
@@ -18,9 +17,9 @@ xmlns:th="http://www.thymeleaf.org">
             <th>Organisation</th>
             <th>Observations</th>
             <th>Evénement</th>
+            <th>Suppression</th>
         </tr>
         <tr th:each="p : ${allParticipants}">
-            <td><input type="checkbox" /></td>
             <td th:text="${p.nom}"></td>
             <td th:text="${p.prenom}"></td>
             <td th:text="${p.email}"></td>
@@ -28,8 +27,13 @@ xmlns:th="http://www.thymeleaf.org">
             <td th:text="${p.organisation}"></td>
             <td th:text="${p.observations}"></td>
             <td th:if="${p.event}!=null" th:text="${p.event.intitule}"></td>
+            <td>
+                <a th:href="@{/participant/modifyParticipant?id={id}(id=${p.numpers})}">Modifier</a>
+            </td>
+            <td>
+                <a th:href="@{/participant/removeParticipant?id={id}(id=${p.numpers})}">Supprimer</a>
+            </td>
         </tr>
     </table>
-    <a href="removeParticipant">Supprimer participant(s)</a>
 </body>
 </html>
