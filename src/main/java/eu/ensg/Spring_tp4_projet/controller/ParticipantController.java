@@ -87,15 +87,35 @@ public class ParticipantController {
         return "redirect:/";
     }
     
-    @RequestMapping(path = "modifyParticipant")
-    public String modifyParticipant(Model model, @RequestParam("id") Optional<String> participantId)
+    @RequestMapping(value = {"/modifyParticipant"}, method=RequestMethod.GET)
+    public String modifyParticipant(Model model, @RequestParam("id") Optional<String> participantId) {
+
+    	int id = Integer.parseInt(participantId.get());
+        Optional<Participant> participant = participantRepository.findById(id);
+        
+        if (participant.isPresent()) {
+        	model.addAttribute("participantForm", participant.get());
+        	model.addAttribute("numpers", id);
+            return "modifyParticipant";
+        }
+        return "Error";
+    }
+    
+    @RequestMapping(path = "/modifyParticipant", method = RequestMethod.POST)
+    public String saveModifiedParticipant(Model model, @ModelAttribute("participantForm")Participant p, @RequestParam("id") Optional<String> participantId)
     {
-        if (participantId.isPresent()) {
-            int id = Integer.parseInt(participantId.get());
-            Optional<Participant> participant = participantRepository.findById(id);
-            model.addAttribute("employee", participant);
-        } else {
-            return "Id not present";
+    	int id = Integer.parseInt(participantId.get());
+        Optional<Participant> participant = participantRepository.findById(id);
+        System.out.println("TTEEEESSSST");
+        if(participant.isPresent()) 
+        {
+            Participant newParticipant = participant.get();
+            newParticipant.setEmail(p.getEmail());
+            newParticipant.setOrganisation(p.getOrganisation());
+            newParticipant.setObservations(p.getObservations());
+            newParticipant = participantRepository.save(newParticipant);
+            System.out.println("SUCCEEEEES !!!!");
+            return "redirect:/participant/all";
         }
         return "modifyParticipant";
     }
