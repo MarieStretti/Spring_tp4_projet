@@ -1,5 +1,24 @@
 # Spring_tp4_projet
 
+## Objectifs
+Ecrire une petite application de gestion des inscriptions de participants à des évenements. Nous utiliserons le Framework Spring pour l’architecture MVC, Hibernate pour la couche de persitance, Maven pour la gestion des dépendances.
+
+## Fonctionnalités principales à implémenter
+* Affichage de la liste des participants dans un tableau HTML
+  * dans un contrôleur dédié
+  * persitance avec Hibernate (les données sont dans une base PostgreSQL ou MySQL)
+* Intégration de la classe Evenement dans la persistance des données Hibernate ainsi que l’association entre les deux classes Participant et Evenement
+* Créer un formulaire d’ajout de participants
+  * avec inscription à un évenement au moins
+  * dans un contrôleur dédié à cette tâche
+* Pour les vues (qui peuvent rester très succinctes), vous pouvez utiliser un moteur de templates comme thymeleaf.
+
+Toutes ces fonctionnalités ont été implémentées.
+
+## Fonctionnalités annexes
+* Modification de participants
+* Suppression de participants
+
 ## Pré-requis
 ### Création de la BDD sous Ubuntu
 
