@@ -5,25 +5,25 @@ xmlns:th="http://www.thymeleaf.org">
     <title>Getting Started: Serving Web Content</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
-    <!--<a href="addParticipant">Add Person</a>-->
     <table class="table">
-    	<thead>
+    	<thead class="thead-dark">
 	        <tr>
-	            <th>Nom</th>
-	            <th>Prenom</th>
-	            <th>Email</th>
-	            <th>Date de naissance</th>
-	            <th>Organisation</th>
-	            <th>Observations</th>
-	            <th>Evénement</th>
-	            <th>Modification</th>
-	            <th>Suppression</th>
+	            <th scope="col">Nom</th>
+	            <th scope="col">Prenom</th>
+	            <th scope="col">Email</th>
+	            <th scope="col">Date de naissance</th>
+	            <th scope="col">Organisation</th>
+	            <th scope="col">Observations</th>
+	            <th scope="col">Evénement</th>
+	            <th scope="col">Modification</th>
+	            <th scope="col">Suppression</th>
 	        </tr>
         </thead>
         <tbody>
-	        <tr th:each="p : ${allParticipants}">
+	        <tr th:each="p : ${allParticipants}" scope="row">
 	            <td th:text="${p.nom}"></td>
 	            <td th:text="${p.prenom}"></td>
 	            <td th:text="${p.email}"></td>

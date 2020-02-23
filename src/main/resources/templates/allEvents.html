@@ -5,21 +5,24 @@ xmlns:th="http://www.thymeleaf.org">
     <title>Getting Started: Serving Web Content</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
     <table class="table">
-        <tr>
-            <th>Inscription</th>
-            <th>Intitule</th>
-            <th>Theme</th>
-            <th>Date de début</th>
-            <th>Durée</th>
-            <th>Nombre de participants maximum</th>
-            <th>Description</th>
-            <th>Organisateur</th>
-            <th>Type de l'événement</th>
-        </tr>
-        <tr th:each="e : ${allEvents}">
+    	<thead class="thead-dark">
+        	<tr>
+            	<th>Inscription</th>
+            	<th>Intitule</th>
+            	<th>Theme</th>
+            	<th>Date de début</th>
+            	<th>Durée</th>
+            	<th>Nombre de participants maximum</th>
+            	<th>Description</th>
+            	<th>Organisateur</th>
+            	<th>Type de l'événement</th>
+        	</tr>
+        </thread>
+        <tr th:each="e : ${allEvents}" scope="row">
             <td><a th:href="@{/participant/addParticipant?id={id}(id=${e.numevent})}">S'inscrire</a></td>
             <td th:text="${e.intitule}"></td>
             <td th:text="${e.theme}"></td>

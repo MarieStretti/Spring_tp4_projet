@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     </head>
     <body>
-        <h1>Adding a participant:</h1>
+        <h1>Ajouter un participant</h1>
         <form th:action="@{/participant/addParticipant?id={id}(id=${eventId})}" th:object="${participantForm}" method="POST">
             <div class="form-group">
                 <label for="nomForm">Nom</label>
@@ -40,7 +40,7 @@
                 <input type="text" class="form-control" id="obsForm" th:field="*{observations}" />
                 <td th:if="${#fields.hasErrors('observations')}" th:errors="*{observations}">Observations Error</td>
             </div>
-            <input type="submit" class="btn btn-primary" value="Create" /> <input type="reset" class="btn btn-primary" value="Reset" />
+            <input type="submit" class="btn btn-primary" value="Ajouter" /> <input type="reset" class="btn btn-primary" value="Reset" />
         </form>
 
         <div th:if="${errorMessage}" th:utext="${errorMessage}"
