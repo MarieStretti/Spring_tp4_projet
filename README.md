@@ -1,4 +1,4 @@
-# Spring_tp4_projet
+# Application de gestion de participants et d'événements (Spring projet)
 
 ## Objectifs
 Ecrire une petite application de gestion des inscriptions de participants à des évenements. Nous utiliserons le Framework Spring pour l’architecture MVC, Hibernate pour la couche de persitance, Maven pour la gestion des dépendances.
