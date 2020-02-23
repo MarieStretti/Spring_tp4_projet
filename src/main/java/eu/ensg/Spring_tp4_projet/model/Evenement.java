@@ -31,7 +31,7 @@ public class Evenement {
     private LocalDate datedebut;
     
     @Column(name="duree")
-    private LocalDate duree;
+    private int duree;
     
     @Column(name="nb_part_max")
     private int nbpartmax;
@@ -81,11 +81,11 @@ public class Evenement {
         this.datedebut = datedebut;
     }
 
-    public LocalDate getDuree() {
+    public int getDuree() {
         return duree;
     }
 
-    public void setDuree(LocalDate duree) {
+    public void setDuree(int duree) {
         this.duree = duree;
     }
 
