@@ -3,10 +3,30 @@
 ## Pré-requis
 ### Création de la BDD sous Ubuntu
 
+* Installer MySQL sur la machine
+L'installation ajoute un nouvel utilisateur linux et un utilisateur de la base de données nommé mysql. Il est seul autorisé, pour l'instant, à se connecter à la base de données. Il ne possède pas de mot de passe, et par mesure de sécurité nous ne lui en attribuerons pas. Nous allons créer un nouvel utilisateur.
+* Connexion à la bdd avec l'utilisateur mysql :
+```
+sudo -i -u postgres
+```
+
+* Lancer l'invite de commande MySQL à l'aide de la commande `mysql`.
+Vous êtes désormais connecté à MySQL en mode administrateur.
+
+* Création d'un utilisateur portant le même nom que l'utilisateur linux (`mstretti`)
  ```
  CREATE USER mstretti;
+ ```
+* Ajout des droits de créer une base de données
+ ```
  ALTER ROLE mstretti WITH CREATEDB;
+ ```
+ * Crétion de la BDD portant le même nom que l'utilisateur (`mstretti`)
+ ```
  CREATE DATABASE mstretti OWNER mstretti;
+ ```
+ * Ajout d'un mot de passe à l'utilisateur
+ ```
  ALTER USER mstretti WITH ENCRYPTED PASSWORD 'mstretti';
  ```
  
