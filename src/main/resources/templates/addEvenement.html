@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns=http://www.w3.org/1999/xhtml
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    </head>
+    <body>
+        <h1>Ajouter un événement</h1>
+        <form th:action="@{/evenement/addEvenement}" th:object="${evenementForm}" method="POST">
+	        <div class="form-group">
+	                <label for="intituleForm">Intitulé</label>
+	                <input type="text" class="form-control" id="intituleForm" th:field="*{intitule}"/>
+	                <td th:if="${#fields.hasErrors('intitule')}" th:errors="*{intitule}">Intitule Error</td>
+			</div>
+			<div class="form-group">
+			    <label for="themeForm">Thème</label>
+			    <input type="text" class="form-control" id="themeForm" th:field="*{theme}" />
+			    <td th:if="${#fields.hasErrors('theme')}" th:errors="*{theme}">Theme Error</td>
+			</div>
+			<div class="form-group">
+			    <label for="debutForm">Date de début</label>
+			    <input type="date" class="form-control" id="debutForm" th:field="*{datedebut}" />
+			    <td th:if="${#fields.hasErrors('datedebut')}" th:errors="*{datedebut}">Date début Error</td>
+			</div>
+			<div class="form-group">
+			    <label for="dureeForm">Durée (h)</label>
+			    <input type="number" class="form-control" id="dureeForm" th:field="*{duree}" />
+			    <td th:if="${#fields.hasErrors('duree')}" th:errors="*{duree}">Durée Error</td>
+			</div>
+			<div class="form-group">
+			    <label for="nbPartMaxForm">Nombre de participants maximum</label>
+			    <input type="number" class="form-control" id="nbPartMaxForm" th:field="*{nbpartmax}" />
+			    <td th:if="${#fields.hasErrors('nbpartmax')}" th:errors="*{nbpartmax}">Nbpartmax Error</td>
+			</div>
+			<div class="form-group">
+			    <label for="descForm">Description</label>
+			    <input type="text" class="form-control" id="descForm" th:field="*{description}" />
+			    <td th:if="${#fields.hasErrors('description')}" th:errors="*{description}">Description Error</td>
+			</div>
+			<div class="form-group">
+			    <label for="orgrForm">Organisateur</label>
+			    <input type="text" class="form-control" id="orgrForm" th:field="*{organisateur}" />
+			    <td th:if="${#fields.hasErrors('organisateur')}" th:errors="*{organisateur}">Organisateur Error</td>
+			</div>
+			<div class="form-group">
+			    <label for="evForm">Type de l'événement</label>
+			    <input type="text" class="form-control" id="evForm" th:field="*{typeevent}" />
+			    <td th:if="${#fields.hasErrors('typeevent')}" th:errors="*{typeevent}">Type evenement Error</td>
+			</div>
+			<input type="submit" class="btn btn-primary" value="Ajouter" /> <input type="reset" class="btn btn-primary" value="Reset" />
+    	</form>
+
+    <div th:if="${errorMessage}" th:utext="${errorMessage}"
+         style="color:red;font-style:italic;">
+    </div>
+</body>
+</html>
