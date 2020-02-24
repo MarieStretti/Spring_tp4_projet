@@ -84,7 +84,7 @@ public class ParticipantController {
         } else {
             return "Il n'y a pas de participant pour cet identifiant";
         }
-        return "redirect:/";
+        return "redirect:/participant/all";
     }
     
     @RequestMapping(value = {"/modifyParticipant"}, method=RequestMethod.GET)
@@ -106,7 +106,6 @@ public class ParticipantController {
     {
     	int id = Integer.parseInt(participantId.get());
         Optional<Participant> participant = participantRepository.findById(id);
-        System.out.println("TTEEEESSSST");
         if(participant.isPresent()) 
         {
             Participant newParticipant = participant.get();
@@ -114,7 +113,6 @@ public class ParticipantController {
             newParticipant.setOrganisation(p.getOrganisation());
             newParticipant.setObservations(p.getObservations());
             newParticipant = participantRepository.save(newParticipant);
-            System.out.println("SUCCEEEEES !!!!");
             return "redirect:/participant/all";
         }
         return "modifyParticipant";
