@@ -9,18 +9,21 @@ xmlns:th="http://www.thymeleaf.org">
 </head>
 <body>
 	<a class="btn btn-primary" href="/participant/all">Voir tous les participants</a>
+	<a class="btn btn-primary" href="/evenement/addEvenement">Ajouter un événement</a>
     <table class="table">
     	<thead class="thead-dark">
         	<tr>
             	<th>Inscription</th>
-            	<th>Intitule</th>
-            	<th>Theme</th>
+            	<th>Intitulé</th>
+            	<th>Thème</th>
             	<th>Date de début</th>
             	<th>Durée (h)</th>
             	<th>Nombre de participants maximum</th>
             	<th>Description</th>
             	<th>Organisateur</th>
             	<th>Type de l'événement</th>
+            	<th scope="col">Modification</th>
+            	<th scope="col">Suppression</th>
         	</tr>
         </thread>
         <tr th:each="e : ${allEvents}" scope="row">
@@ -33,7 +36,14 @@ xmlns:th="http://www.thymeleaf.org">
             <td th:text="${e.description}"></td>
             <td th:text="${e.organisateur}"></td>
             <td th:text="${e.typeevent}"></td>
+            <td>
+	        	<a th:href="@{/evenement/modifyEvenement?id={id}(id=${e.numevent})}">Modifier</a>
+	        </td>
+	        <td>
+	        	<a th:href="@{/evenement/removeEvenement?id={id}(id=${e.numevent})}">Supprimer</a>
+	        </td>
         </tr>
     </table>
+    <div th:if="${removeMessage}" th:utext="${removeMessage}"></div>
 </body>
 </html>
