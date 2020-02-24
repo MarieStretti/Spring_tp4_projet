@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns=http://www.w3.org/1999/xhtml
+xmlns:th="http://www.thymeleaf.org">
+	<head>
+	    <meta charset="utf-8">
+	    <meta http-equiv="x-ua-compatible" content="ie=edge">
+	    <title>Modify participant</title>
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+	</head>
+	 
+	<body>
+	    <form th:action="@{/evenement/modifyEvenement?id={id}(id=${numevent})}" th:object="${evenementForm}" method="post">
+		    <div class="form-group">
+	            <label for="datedebut">Date de début</label> 
+	            <input type="date" class="form-control" th:field="*{datedebut}" id="datedebut"/>
+            </div>
+            <div class="form-group">
+				<label for="nbpartmax">Nombre de participants maximum</label> 
+	            <input type="text" class="form-control" th:field="*{nbpartmax}" id="nbpartmax" placeholder="Nbpartmax" />
+            </div>
+            <div class="form-group">
+	            <label for="organisateur">Organisateur</label> 
+	            <input type="text" class="form-control" th:field="*{organisateur}" id="organisateur" placeholder="Organisateur" />
+			</div>
+	            <input type="submit" class="btn btn-primary" value="Modifier">
+	
+	            <input type="hidden" id="id" th:field="*{numevent}">
+	
+	    </form>
+	</body>
+ 
+</html>
