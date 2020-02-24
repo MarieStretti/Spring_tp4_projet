@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table( name = "evenement" )
@@ -28,6 +29,7 @@ public class Evenement {
     private String theme;
     
     @Column(name="date_debut")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate datedebut;
     
     @Column(name="duree")
