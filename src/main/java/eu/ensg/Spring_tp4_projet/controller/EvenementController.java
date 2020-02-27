@@ -4,6 +4,8 @@ import eu.ensg.Spring_tp4_projet.model.Evenement;
 import eu.ensg.Spring_tp4_projet.model.EvenementRepository;
 import eu.ensg.Spring_tp4_projet.model.Participant;
 import eu.ensg.Spring_tp4_projet.model.ParticipantRepository;
+
+import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -122,13 +124,14 @@ public class EvenementController {
     public String removeEvenement(Model model, @RequestParam("id") Optional<String> evenementId){
         String id = evenementId.get();
         Optional<Evenement> evenement = eventRepository.findById(Integer.parseInt(id));
-    	Optional<Participant> participant = participantRepository.findById(Integer.parseInt(id));
     	
         if(evenement.isPresent()) 
         {
-        	if (participant.isPresent()) {
-            	participantRepository.deleteById(participant.get().getNumpers());
-			}
+        	List<Participant> participants = evenement.get().getParticipants();
+        	for (int i = 0; i < participants.size(); i++) {
+        		Participant participant = participants.get(i);
+	            participantRepository.deleteById(participant.getNumpers());
+        	}
         	eventRepository.deleteById(Integer.parseInt(id));
         } else {
             return "Il n'y a pas d'événement pour cet identifiant";
